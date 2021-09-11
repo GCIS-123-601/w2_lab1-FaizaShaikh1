@@ -1,0 +1,281 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\USER> ls
+
+
+    Directory: C:\Users\USER
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        10/9/2020   6:43 PM                .idlerc
+d-r---        2/27/2020   5:42 AM                3D Objects
+d-r---        2/27/2020   5:42 AM                Contacts
+d-r---         9/4/2021  11:43 AM                Desktop
+d-r---        11/1/2020   1:30 PM                Documents
+d-r---        9/11/2021  10:24 AM                Downloads
+d-r---        2/27/2020   5:42 AM                Favorites
+d-r---        2/27/2020   5:42 AM                Links
+d-r---        2/27/2020   5:42 AM                Music
+d-r---         8/4/2021   9:52 PM                OneDrive
+d-r---        2/27/2020   5:42 AM                Pictures
+d-r---        2/27/2020   5:42 AM                Saved Games
+d-r---        2/27/2020   5:42 AM                Searches
+d-r---        2/27/2020   5:42 AM                Videos
+
+
+PS C:\Users\USER> mkdir unit1
+
+
+    Directory: C:\Users\USER
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/11/2021  10:58 AM                unit1
+
+
+PS C:\Users\USER> cd unit1
+PS C:\Users\USER\unit1> mkdir e1
+
+
+    Directory: C:\Users\USER\unit1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/11/2021  10:59 AM                e1
+
+
+PS C:\Users\USER\unit1> cd e1
+PS C:\Users\USER\unit1\e1> cd..
+PS C:\Users\USER\unit1> mkdir e2
+
+
+    Directory: C:\Users\USER\unit1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/11/2021  10:59 AM                e2
+
+
+PS C:\Users\USER\unit1> cd e1
+PS C:\Users\USER\unit1\e1> notepad first.txt
+PS C:\Users\USER\unit1\e1> cp C:\Users\USER\unit1\e1\first.txt C:\Users\USER\unit1\e2
+PS C:\Users\USER\unit1\e1> cd..
+PS C:\Users\USER\unit1> cd e2
+PS C:\Users\USER\unit1\e2> ls
+
+
+    Directory: C:\Users\USER\unit1\e2
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 first.txt
+
+
+PS C:\Users\USER\unit1\e2> rni C:\Users\USER\unit1\e2\first.txt second.txt
+PS C:\Users\USER\unit1\e2> ls
+
+
+    Directory: C:\Users\USER\unit1\e2
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e2> mv C:\Users\USER\unit1\e2\second.txt C:\Users\USER\unit1\e1
+PS C:\Users\USER\unit1\e2> cd..
+PS C:\Users\USER\unit1> cd e1
+PS C:\Users\USER\unit1\e1> ls
+
+
+    Directory: C:\Users\USER\unit1\e1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 first.txt
+-a----        9/11/2021  11:00 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e1> cd..
+PS C:\Users\USER\unit1> cd..
+PS C:\Users\USER> git --version
+git version 2.33.0.windows.2
+PS C:\Users\USER> cd unit1
+PS C:\Users\USER\unit1> cd e1
+PS C:\Users\USER\unit1\e1> ls
+
+
+    Directory: C:\Users\USER\unit1\e1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 first.txt
+-a----        9/11/2021  11:00 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e1> ls -force
+
+
+    Directory: C:\Users\USER\unit1\e1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 first.txt
+-a----        9/11/2021  11:00 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e1> git status
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\USER\unit1\e1> git init https://github.com/FaizaShaikh1/myTestF.git
+fatal: cannot mkdir https://github.com/FaizaShaikh1/myTestF.git: Invalid argument
+PS C:\Users\USER\unit1\e1> git init
+Initialized empty Git repository in C:/Users/USER/unit1/e1/.git/
+PS C:\Users\USER\unit1\e1> ls
+
+
+    Directory: C:\Users\USER\unit1\e1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/11/2021  11:00 AM              8 first.txt
+-a----        9/11/2021  11:00 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e1> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        first.txt
+        second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\USER\unit1\e1> notepad second.txt
+PS C:\Users\USER\unit1\e1> cat second.txt
+version1
+PS C:\Users\USER\unit1\e1> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        first.txt
+        second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\USER\unit1\e1> git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+PS C:\Users\USER\unit1\e1> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        first.txt
+        second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\USER\unit1\e1> git add .
+PS C:\Users\USER\unit1\e1> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   first.txt
+        new file:   second.txt
+
+PS C:\Users\USER\unit1\e1> git commit -m "nice"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'USER@DellOptiPlex9020Desposal.(none)')
+PS C:\Users\USER\unit1\e1> ls -force
+
+
+    Directory: C:\Users\USER\unit1\e1
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d--h--        9/11/2021  11:35 AM                .git
+-a----        9/11/2021  11:00 AM              8 first.txt
+-a----        9/11/2021  11:32 AM              8 second.txt
+
+
+PS C:\Users\USER\unit1\e1> git remote add origin https://github.com/GCIS-123-601/w2_lab1-FaizaShaikh1.git
+PS C:\Users\USER\unit1\e1> git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/GCIS-123-601/w2_lab1-FaizaShaikh1.git'
+PS C:\Users\USER\unit1\e1> git remote add origin https://github.com/FaizaShaikh1/myTestF.git
+error: remote origin already exists.
+PS C:\Users\USER\unit1\e1> git branch -M main
+PS C:\Users\USER\unit1\e1> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/GCIS-123-601/w2_lab1-FaizaShaikh1.git'
+PS C:\Users\USER\unit1\e1> git config user.name "faiza"
+PS C:\Users\USER\unit1\e1> git config user.email "ffs7260@rit.edu"
+PS C:\Users\USER\unit1\e1> git add *
+PS C:\Users\USER\unit1\e1> git commit -m "this is confusing"
+[main (root-commit) 357b0af] this is confusing
+ 2 files changed, 2 insertions(+)
+ create mode 100644 first.txt
+ create mode 100644 second.txt
+PS C:\Users\USER\unit1\e1> git remote add origin https://github.com/FaizaShaikh1/myTestF.git
+error: remote origin already exists.
+PS C:\Users\USER\unit1\e1> git branch -M main
+PS C:\Users\USER\unit1\e1> git push -u origin main
+info: please complete authentication in your browser...
+To https://github.com/GCIS-123-601/w2_lab1-FaizaShaikh1.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/GCIS-123-601/w2_lab1-FaizaShaikh1.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\USER\unit1\e1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
